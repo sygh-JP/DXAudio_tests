@@ -1,0 +1,21 @@
+﻿http://www.atmarkit.co.jp/ait/articles/1306/13/news123.html
+
+Windows ストア アプリではアプリのパッケージに同梱した任意のファイルを読み込む際、
+Windows.ApplicationModel.Package.Current.InstalledLocation プロパティを使うことで、
+EXE が存在するローカル フォルダーのパスを間接的に取得できる。
+しかし、デスクトップ開発でもそうだったように、Visual C# と違って Visual C++ では相変わらず、
+任意のファイルをコンテンツ化・出力ディレクトリにコピーする設定が面倒。
+
+まず、[項目の種類]を[カスタム ビルド ツール]に設定し、
+[コンテンツ]を[はい]に設定し、
+[出力ファイル]に
+"$(TargetDir)$(InputFileName)
+を設定し、
+[コマンド ライン]に
+@echo on
+copy "%(FullPath)" "$(TargetDir)"
+@echo off
+を設定してやる必要がある。
+
+HLSL シェーダープログラムは、デフォルトの[HLSL コンパイラ]を通せば、
+自動的にバイナリのコンテンツ化作業はやってくれる模様。

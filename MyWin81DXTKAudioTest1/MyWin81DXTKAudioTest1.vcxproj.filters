@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>a24dee1d-57d9-43d2-a19a-f840b6e1ab6b</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>6c396f71-c1da-4fff-90e2-7e834a2a87b9</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Image Include="Assets\Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="MyAudioHelpers">
+      <UniqueIdentifier>{2ed90586-254c-4eb5-98e9-a53fe44e5a70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="free_audio_assets">
+      <UniqueIdentifier>{3d45c5ef-6d93-4a63-a0d4-af871f8f49c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="..\MyAudioHelpers\MyAudioPlayer.h">
+      <Filter>MyAudioHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MyAudioHelpers\MyAudioSet1.h">
+      <Filter>MyAudioHelpers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MyWin81DXTKAudioTest1_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\free_audio_assets\bgm_maoudamashii_healing01.mp3">
+      <Filter>free_audio_assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\free_audio_assets\se_maoudamashii_magical01.wav">
+      <Filter>free_audio_assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\free_audio_assets\se_maoudamashii_magical02.wav">
+      <Filter>free_audio_assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\free_audio_assets\se_maoudamashii_magical03.wav">
+      <Filter>free_audio_assets</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\free_audio_assets\se_maoudamashii_magical07.wav">
+      <Filter>free_audio_assets</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="vc_local_package_contents_hint.txt" />
+  </ItemGroup>
+</Project>
