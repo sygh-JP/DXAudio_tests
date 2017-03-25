@@ -416,15 +416,16 @@ namespace MyAudioHelpers
 	class MyAudioPlayer : public IXAudio2VoiceCallback
 	{
 	private:
-		MyComPtr<IMFSourceReader> m_pMFSourceReader;
 		// シングルバッファだとひどいノイズが乗る。とりあえず適当な数でリングバッファを作成してみる。
 		static const int AudioRingBufferCount = 4;
 		static const size_t OneRingBufferInitialSizeInBytes = 32 * 1024;
+	private:
+		MyComPtr<IMFSourceReader> m_pMFSourceReader;
+		IXAudio2SourceVoice* m_pXASourceVoice = nullptr; // IUnknown 実装ではなく、Release() を持たない。
 		std::array<std::vector<BYTE>, AudioRingBufferCount> m_audioRingBuffers;
 		int m_audioRingBufferIndex = 0;
-		IXAudio2SourceVoice* m_pXASourceVoice = nullptr; // IUnknown 実装ではなく、Release() を持たない。
-		bool m_isEndOfStream = false;
 		MyAudioPlayerState m_playerState = MyAudioPlayerState::Stopped;
+		bool m_isEndOfStream = false;
 		bool m_isLoopMode = false;
 		// ループフラグはフィールドで持たせるか、Update() メソッド引数で逐一指定するか、悩みどころ。
 		// ただ、少なくともループするか否かはいつでも変更できるべき。再生開始時にしか指定できないというのは NG。

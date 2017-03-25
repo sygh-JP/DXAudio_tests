@@ -7,12 +7,14 @@ Tests of DirectX Audio by sygh.
 * MFC 14.0
 * .NET Framework 4.5.2 (WPF)
 * DirectXTK 2016-04-26
+* [SharpDX](http://sharpdx.org/) 3.1.1
 
 ## Target Environment (ターゲット環境)
 * Windows Vista/Windows 7/Windows 8.1/Windows 10 (Desktop)
 * Windows 8.1/Windows 10 (Store)
 * Audio device compatible with XAudio2
 * Audio driver compatible with XAudio2
+* Latest DirectX End-User Runtime (for XAudio2 v2.7 in SharpDX)
 
 ## How to Build (ビルド方法)
 1. Build DirectXTK (GitHub/CodePlex) and append the global include and library directory paths to it
