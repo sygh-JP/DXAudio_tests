@@ -123,8 +123,12 @@ BOOL CMyMfcDXTKAudioTest1Dlg::OnInitDialog()
 	// BGM も SE も、最初の発音までに若干時間がかかるようになる模様。
 	// 環境起因？　オーディオデバイスがカニ（Realtek）だからかもしれない。
 
+	const CStringW userMusicFolderPath = MyMfcHelpers::GetKnownFolderPath(FOLDERID_Music);
+	const CStringW userDownloadFolderPath = MyMfcHelpers::GetKnownFolderPath(FOLDERID_Downloads);
+
 #if 0
-	const CPathW assetsDirPath(LR"(C:\Users\sygh\Downloads\free_assets_maoudamashii)");
+	CPathW assetsDirPath(userDownloadFolderPath);
+	assetsDirPath += LR"(free_assets_maoudamashii)";
 #else
 	WCHAR moduleFilePath[MAX_PATH] = {};
 	::GetModuleFileNameW(nullptr, moduleFilePath, ARRAYSIZE(moduleFilePath));
@@ -145,7 +149,8 @@ BOOL CMyMfcDXTKAudioTest1Dlg::OnInitDialog()
 	};
 
 #if 0
-	const CPathW bgmFilePath(LR"(C:\Users\sygh\Music\other\mhr_eyec.wav)");
+	CPathW bgmFilePath(userMusicFolderPath);
+	bgmFilePath += LR"(other\mhr_eyec.wav)";
 #else
 	CPathW bgmFilePath(assetsDirPath);
 	bgmFilePath += L"bgm_maoudamashii_healing01.mp3";

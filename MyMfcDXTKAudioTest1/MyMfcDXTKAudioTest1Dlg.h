@@ -31,6 +31,17 @@ namespace MyMfcHelpers
 			inoutTimerID = 0;
 		}
 	}
+
+	inline CStringW GetKnownFolderPath(const KNOWNFOLDERID& fid, DWORD flags = KF_FLAG_DEFAULT, HANDLE token = nullptr)
+	{
+		CStringW str;
+		ATL::CComHeapPtr<wchar_t> folderPathPtr; // CoTaskMemFree() を自動で呼んでくれる。
+		if (SUCCEEDED(::SHGetKnownFolderPath(fid, flags, token, &folderPathPtr)))
+		{
+			str = static_cast<LPCWSTR>(folderPathPtr);
+		}
+		return str;
+	}
 }
 
 
