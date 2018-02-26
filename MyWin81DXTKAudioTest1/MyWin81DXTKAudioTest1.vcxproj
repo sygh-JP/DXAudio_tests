@@ -106,60 +106,66 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;C:\Library\DirectXTK\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(GeneratedFilesDir);$(IntDir);%(AdditionalIncludeDirectories);.\;..\MyAudioHelpers\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Library\DirectXTK\lib\Windows81;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

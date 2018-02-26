@@ -32,7 +32,7 @@ MainPage::MainPage()
 	TimeSpan span;
 	span.Duration = 1000 * 1000 * 10 / FramesPerSecond; // 単位は100[ns]。
 	m_dispatcherTimer->Interval = span;
-	m_dispatcherTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object ^>(this, &MyWin81DXTKAudioTest1::MainPage::OnTick);
+	m_dispatcherTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object ^>(this, &MainPage::OnTick);
 
 	const LPCWSTR seAudioFileNames[MyAudioSet1::SoundEffectsSlotCount] =
 	{
