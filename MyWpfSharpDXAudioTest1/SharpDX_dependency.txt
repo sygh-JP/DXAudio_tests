@@ -1,0 +1,7 @@
+﻿デスクトップ版のSharpDXをv3.1.1からv4.0.1に更新したところ、SharpDX.MediaFoundationのNuGetパッケージが
+Direct3D9, DXGI, Mathematicsに依存するように変更されたらしく、これらの依存パッケージ群も勝手にインストールされる。
+しかし、純粋にMFだけしか使わない場合、プロジェクトのアセンブリ参照設定からは外しても何ら問題ない。
+
+なお、v3.1.1時点でもSharpDX.MediaFoundation.csproj自体はDirect3D9, DXGI, Mathematicsのプロジェクト参照に依存していた模様。
+たとえば、SharpDX.MediaFoundation.DirectX.VideoAccelerationServiceクラスがSharpDX.Direct3D9.Deviceに依存している。
+しかし、SharpDX.MediaFoundationのインストール時に同時にインストールされる依存パッケージはSharpDXのみだったはず。
