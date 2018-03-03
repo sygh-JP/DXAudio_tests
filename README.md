@@ -7,11 +7,13 @@ Tests of DirectX Audio by sygh.
 * MFC 14.0
 * .NET Framework 4.5.2 (WPF)
 * DirectXTK 2016-04-26
-* [SharpDX](http://sharpdx.org/) 3.1.1
+* [SharpDX](http://sharpdx.org/) 4.0.1
 
 ## Target Environment (ターゲット環境)
-* Windows Vista/Windows 7/Windows 8.1/Windows 10 (Desktop)
-* Windows 8.1/Windows 10 (WinRT)
+* Windows Vista/Windows 7/Windows 8.1/Windows 10 (Desktop, WPF)
+* Windows 8.1/Windows 10 (Desktop, MFC)
+* Windows 8.1/Windows 10 (WinRT for Win8.1, Store)
+* Windows 10 (WinRT for Win10, UWP)
 * Audio device compatible with XAudio2
 * Audio driver compatible with XAudio2
 * Latest DirectX End-User Runtime (for XAudio2 v2.7 in SharpDX)
@@ -21,4 +23,4 @@ Tests of DirectX Audio by sygh.
 1. Download *.mp3 and *.wav files from "http://maoudamashii.jokersounds.com/" and copy to the directory "free_audio_assets"
 1. Build each solution file
 
-2017-03-25, sygh.
+2018-03-03, sygh.

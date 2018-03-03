@@ -52,7 +52,11 @@
 #pragma comment(lib, "mfplat.lib")
 #pragma comment(lib, "mfreadwrite.lib")
 
-
+// DirectXTKAudio_Desktop_2015_Win8.vcxproj では、"_WIN32_WINNT=0x0602" が定義されている。
+// これにより、Windows SDK 8.x 付属の XAudio2 v2.8 が使用されるようになる。
+// Windows 8 以降には XAudio2 v2.8 (XAudio2_8.dll) が標準インストールされており、
+// Windows 10 には XAudio2 v2.9 (XAudio2_9.dll) が標準インストールされているが、
+// Windows 7 以前では XAudio2 v2.8 以降を利用できない。
 #ifdef _DEBUG
 #if defined(_M_IX86)
 #pragma comment(lib, "Desktop_2015\\Win32\\Debug\\DirectXTKAudioWin8.lib")
