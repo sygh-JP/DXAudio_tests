@@ -46,64 +46,68 @@ namespace MyUtils
 
 namespace MyUtils
 {
-	template<typename T> bool LoadBinaryFromFileImpl(LPCWSTR pFileName, std::vector<T>& buffer)
+	template<typename T> void LoadBinaryFromFileImpl(LPCWSTR pFileName, std::vector<T>& buffer)
 	{
-		static_assert((sizeof(T) == 1), "Unsupported size!!");
-
 		buffer.clear();
 
-#if defined(_M_X64) || defined(_M_ARM64)
 		struct _stat64 fileStats = {};
 		const auto getFileStatFunc = _wstat64;
-#elif defined(_M_IX86) || defined(_M_ARM)
-		struct _stat64i32 fileStats = {};
-		const auto getFileStatFunc = _wstat64i32;
-#else
-#error Not supported platform!!
-#endif
+
 		if (getFileStatFunc(pFileName, &fileStats) != 0 || fileStats.st_size < 0)
 		{
-			ATLTRACE(L"Cannot get the file stats for the file!! <%s>\n", pFileName);
-			return false;
+			throw std::exception("Cannot get the file stats for the file!!");
 		}
 
-		buffer.resize(fileStats.st_size);
+		if (fileStats.st_size % sizeof(T) != 0)
+		{
+			throw std::exception("The file size is not a multiple of the expected size of element!!");
+		}
+
+		const auto fileSizeInBytes = static_cast<uint64_t>(fileStats.st_size);
+
+		if (sizeof(size_t) < 8 && (std::numeric_limits<size_t>::max)() < fileSizeInBytes)
+		{
+			throw std::exception("The file size is over the capacity on this platform!!");
+		}
 
 		if (fileStats.st_size == 0)
 		{
-			return true;
+			return;
 		}
 
-#if 0
-		// デバッグ ビルドでは、数 MB のファイルを読み込むときに20秒以上の時間がかかる。
-		std::basic_ifstream<T> ifs(pFileName, std::ios::in | std::ios::binary);
+		const auto numElementsInFile = static_cast<size_t>(fileStats.st_size) / sizeof(T);
 
-		if (ifs.fail())
-		{
-			ATLTRACE(L"Cannot open the file!! <%s>\n", pFileName);
-			return false;
-		}
+		buffer.resize(numElementsInFile);
 
-		ifs.read(&buffer[0], fileStats.st_size);
-#else
 		FILE* pFile = nullptr;
 		const auto retCode = _wfopen_s(&pFile, pFileName, L"rb");
 		if (retCode != 0 || pFile == nullptr)
 		{
-			ATLTRACE(L"Cannot open the file!! <%s>\n", pFileName);
-			return false;
+			throw std::exception("Cannot open the file!!");
 		}
-		fread_s(&buffer[0], buffer.size(), 1, fileStats.st_size, pFile);
+		fread_s(&buffer[0], buffer.size(), sizeof(T), numElementsInFile, pFile);
 		fclose(pFile);
 		pFile = nullptr;
-#endif
+	}
 
-		return true;
+	template<typename T> bool LoadBinaryFromFileImpl2(LPCWSTR pFileName, std::vector<T>& buffer)
+	{
+		try
+		{
+			LoadBinaryFromFileImpl(pFileName, buffer);
+			return true;
+		}
+		catch (const std::exception& ex)
+		{
+			const CStringW strMsg(ex.what());
+			ATLTRACE(L"%s <%s>\n", strMsg.GetString(), pFileName);
+			return false;
+		}
 	}
 
 	inline bool LoadBinaryFromFile(LPCWSTR pFileName, std::vector<uint8_t>& buffer)
 	{
-		return LoadBinaryFromFileImpl(pFileName, buffer);
+		return LoadBinaryFromFileImpl2(pFileName, buffer);
 	}
 
 #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
