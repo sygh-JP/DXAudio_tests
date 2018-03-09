@@ -46,14 +46,14 @@ namespace MyUtils
 
 namespace MyUtils
 {
-	template<typename T> void LoadBinaryFromFileImpl(LPCWSTR pFileName, std::vector<T>& buffer)
+	template<typename T> void LoadBinaryFromFileImpl(LPCWSTR pFilePath, std::vector<T>& outBuffer)
 	{
-		buffer.clear();
+		outBuffer.clear();
 
 		struct _stat64 fileStats = {};
 		const auto getFileStatFunc = _wstat64;
 
-		if (getFileStatFunc(pFileName, &fileStats) != 0 || fileStats.st_size < 0)
+		if (getFileStatFunc(pFilePath, &fileStats) != 0 || fileStats.st_size < 0)
 		{
 			throw std::exception("Cannot get the file stats for the file!!");
 		}
@@ -75,17 +75,17 @@ namespace MyUtils
 			return;
 		}
 
-		const auto numElementsInFile = static_cast<size_t>(fileStats.st_size) / sizeof(T);
+		const auto numElementsInFile = static_cast<size_t>(fileStats.st_size / sizeof(T));
 
-		buffer.resize(numElementsInFile);
+		outBuffer.resize(numElementsInFile);
 
 		FILE* pFile = nullptr;
-		const auto retCode = _wfopen_s(&pFile, pFileName, L"rb");
+		const auto retCode = _wfopen_s(&pFile, pFilePath, L"rb");
 		if (retCode != 0 || pFile == nullptr)
 		{
 			throw std::exception("Cannot open the file!!");
 		}
-		fread_s(&buffer[0], buffer.size(), sizeof(T), numElementsInFile, pFile);
+		fread_s(&outBuffer[0], numElementsInFile * sizeof(T), sizeof(T), numElementsInFile, pFile);
 		fclose(pFile);
 		pFile = nullptr;
 	}
