@@ -7,7 +7,7 @@ Tests of DirectX Audio by sygh.
 * MFC 14.0
 * .NET Framework 4.5.2 (WPF)
 * DirectXTK 2016-04-26
-* [SharpDX](http://sharpdx.org/) 4.0.1
+* [SharpDX](http://sharpdx.org/) 4.2.0 (the final version)
 
 ## Target Environment (ターゲット環境)
 * Windows Vista/Windows 7/Windows 8.1/Windows 10 (Desktop, WPF)
@@ -20,7 +20,7 @@ Tests of DirectX Audio by sygh.
 
 ## How to Build (ビルド方法)
 1. Build DirectXTK (GitHub/CodePlex) and append the global include and library directory paths to it
-1. Download *.mp3 and *.wav files from "http://maoudamashii.jokersounds.com/" and copy to the directory "free_audio_assets"
+1. Download *.mp3 and *.wav files from "https://maoudamashii.jokersounds.com/" and copy to the directory "free_audio_assets"
 1. Build each solution file
 
-2018-03-03, sygh.
+2019-09-14, sygh.

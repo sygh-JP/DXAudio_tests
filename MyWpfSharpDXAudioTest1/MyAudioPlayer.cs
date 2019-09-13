@@ -242,7 +242,9 @@ namespace MyAudioHelpers
 		{
 			if (this._xaSourceVoice != null)
 			{
-				return this._xaSourceVoice.Volume;
+				float volume;
+				this._xaSourceVoice.GetVolume(out volume);
+				return volume;
 			}
 			return 0;
 		}
